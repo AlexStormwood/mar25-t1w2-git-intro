@@ -2,6 +2,13 @@
 	--background: #0f305c;
 	--textColour: white;
 
+	--theme-100: white;
+	--theme-200: #d9dce0;
+	--theme-300: rgb(132, 173, 228);
+
+	--theme-900: #0d2646;
+	--theme-1000: black;
+
 	color: var(--textColour);
 
 	/* margin: 0; */
@@ -39,8 +46,45 @@ main.movieList {
 	justify-content: space-evenly;
 
 	section.movieCard {
-		background-color: var(--background);
+		background-color: var(--theme-900);
 		width: 31%;
 		padding: 1%;
+		
+		h2, h3, section.movieRating {
+			text-align: center;
+		}
+
+		a {
+			background-color: color-mix(in srgb, var(--theme-300) 50%, #0000004f 50%);
+			/* filter: invert(100%); */
+			display: block;
+			/* height: 15%; */
+			padding: 3%;
+			/* shadow, hover colour, border/outline, rounded edges */
+			border-radius: 5px;
+			box-shadow: 2px 2px 2px var(--theme-200);
+			text-decoration: none;
+			color: var(--textColour);
+		}
+
+		a:hover {
+			background-color: var(--theme-900);
+		}
 	}
+}
+
+
+@media screen and (max-width: 600px) {
+	main.movieList {
+
+		flex-direction: column;
+	
+		section.movieCard {
+			width: 100%;
+
+			a {
+				width: 80%;
+			}
+		}
+	}	
 }
